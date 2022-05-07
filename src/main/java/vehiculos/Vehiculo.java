@@ -19,6 +19,8 @@ public class Vehiculo {
 		this.puertas = puertas;
 		this.fabricante = fabricante;
 		cantidadVehiculos++;
+		
+		Fabricante.ventaFabricante(fabricante);
 	}
 	
 	// CLASS METHODS

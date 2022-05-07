@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Pais {
 	// CLASS VARIABLES
-	private static HashMap<String, Integer> ventasPaises = new HashMap<String, Integer>(); 
+	private static HashMap<Pais, Integer> ventasPaises = new HashMap<Pais, Integer>(); 
 	
 	// INSTANCE VARIABLES
 	private String nombre;
@@ -13,20 +13,22 @@ public class Pais {
 	// CONSTRUCTORS
 	public Pais(String nombre) {
 		this.nombre = nombre;
-		
-		if(ventasPaises.get(nombre) == null) {
-			ventasPaises.put(nombre, 1);
-		} else {
-			ventasPaises.replace(nombre, ventasPaises.get(nombre) + 1);
-		}
 	}
 	
 	
 	// CLASS METHODS
-	public static String paisMasVendedor() {
-		String paisMasVendedor = "";
-		for (Map.Entry<String, Integer> pais : ventasPaises.entrySet()) {
-			if(paisMasVendedor == "") {
+	public static void ventaPais(Pais pais) {
+		if(ventasPaises.get(pais) == null) {
+			ventasPaises.put(pais, 1);
+		} else {
+			ventasPaises.replace(pais, ventasPaises.get(pais) + 1);
+		}
+	}
+	
+	public static Pais paisMasVendedor() {
+		Pais paisMasVendedor = null;
+		for (Map.Entry<Pais, Integer> pais : ventasPaises.entrySet()) {
+			if(paisMasVendedor == null) {
 				paisMasVendedor = pais.getKey();
 			} else if(pais.getValue() > ventasPaises.get(paisMasVendedor)) {
 				paisMasVendedor = pais.getKey();

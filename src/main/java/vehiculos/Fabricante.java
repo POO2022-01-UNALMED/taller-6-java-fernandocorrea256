@@ -6,7 +6,7 @@ import java.util.Map;
 public class Fabricante {
 
 	// CLASS VARIABLES
-	private static HashMap<String, Integer> ventas = new HashMap<String, Integer>();
+	private static HashMap<Fabricante, Integer> ventas = new HashMap<Fabricante, Integer>();
 	
 	
 	// INSTANCE VARIABLES
@@ -18,21 +18,25 @@ public class Fabricante {
 	public Fabricante(String nombre, Pais pais) {
 		this.nombre = nombre;
 		this.pais = pais;
-		
-		if(ventas.get(nombre) == null) {
-			ventas.put(nombre, 1);
-		} else {
-			ventas.replace(nombre, ventas.get(nombre) + 1);
-		}
 	}
 	
 	
 	// CLASS METHODS
-	public static String fabricaMayorVentas() {
-		String fabricaMayorVentas = "";
+	public static void ventaFabricante(Fabricante fabricante) {
+		Pais.ventaPais(fabricante.getPais());
 		
-		for (Map.Entry<String, Integer> fabrica : ventas.entrySet()) {
-			if(fabricaMayorVentas == "") {
+		if(ventas.get(fabricante) == null) {
+			ventas.put(fabricante, 1);
+		} else {
+			ventas.replace(fabricante, ventas.get(fabricante) + 1);
+		}
+	}
+	
+	public static Fabricante fabricaMayorVentas() {
+		Fabricante fabricaMayorVentas = null;
+		
+		for (Map.Entry<Fabricante, Integer> fabrica : ventas.entrySet()) {
+			if(fabricaMayorVentas == null) {
 				fabricaMayorVentas = fabrica.getKey();
 			} else if(fabrica.getValue() > ventas.get(fabricaMayorVentas)) {
 				fabricaMayorVentas = fabrica.getKey();
