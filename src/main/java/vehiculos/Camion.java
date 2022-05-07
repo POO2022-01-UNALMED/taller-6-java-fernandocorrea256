@@ -11,7 +11,7 @@ public class Camion extends Vehiculo{
 	
 	// CONSTRUCTORS
 	public Camion(String placa, String nombre, int precio, int peso, Fabricante fabricante, int ejes) {
-		super(placa, 80, 2, nombre, precio, peso, "4X2", fabricante);
+		super(placa, 2, 80, nombre, precio, peso, "4X2", fabricante);
 		this.ejes = ejes;
 		cantidadCamiones++;
 	}
