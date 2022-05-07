@@ -11,7 +11,7 @@ public class Vehiculo {
 		cantidadVehiculos++;
 	}
 	
-	public Vehiculo(String placa, String nombre, String traccion, int precio, int puertas, int velocidadMaxima, int peso, Fabricante fabricante) {
+	public Vehiculo(String placa, int velocidadMaxima, int puertas, String nombre, int precio, int peso, String traccion, Fabricante fabricante) {
 		this.placa = placa;
 		this.nombre = nombre;
 		this.traccion = traccion;
